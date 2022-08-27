@@ -183,5 +183,40 @@
         </div>
       </div>
     </section>
+    <section>
+      <h2>Information</h2>
+      <form>
+        <div>
+          <label>Name
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="Enter your email" required>
+          </label>
+        </div>
+        <div>
+          <p>Contact area</p>
+          <label>
+            <input type="radio" name="contact-area" value="Human resources" checked/>
+            Human resources
+          </label>
+          <label>
+            <input type="radio" name="contact-area" value="Systems"/>
+            Systems
+          </label>
+          <label>
+            <input type="radio" name="contact-area" value="Commercialization"/>
+            Commercialization
+          </label>
+        </div>
+        <div>
+          <p>Message</p>
+          <textarea placeholder="Your message" required></textarea>
+        </div>
+        <div>
+          <input type="submit" value="Send">
+        </div>
+      </form>
+    </section>
   </body>
 </html>
