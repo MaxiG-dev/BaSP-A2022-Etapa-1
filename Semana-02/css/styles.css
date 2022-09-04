@@ -174,9 +174,11 @@ aside div:last-of-type li:last-child i {
 main {
   margin-top: 70px;
   margin-left: 300px;
+  
 }
 section {
   height: max-content;
+  margin-bottom: 50px;
   padding: 20px;
 }
 #home {
@@ -210,7 +212,7 @@ section {
   padding: 10px 30px;
   text-transform: uppercase;
   font-weight: bold;
-  background: var(--white);
+  background: #fff;
   border: solid 1px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -222,12 +224,12 @@ section {
 #home img {
   max-height: 500px;
   min-height: 390px;
-  object-fit: cover;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  object-fit: cover;
 }
 #about, #functions {
   width: 100%;
@@ -253,4 +255,91 @@ section {
 }
 #about h3, #functions h3 {
   font-size: 20px;
+  margin-bottom: 10px;
+}
+#info h2 {
+  width: 100%;
+  font-size: 40px;
+}
+form {
+  width: 260px;
+  margin: 50px auto;
+  font-weight: bold;
+}
+form div, form label {
+  display: block;
+}
+form div {
+  margin: 10px 0;
+
+}
+form input, form textarea {
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: solid 1px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 15px;
+}
+.form-user input {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+.form-contact input {
+  width: 18px;
+  height: 18px;
+}
+.form-contact input[type="radio"] {
+  opacity: 0;
+}
+.form-contact input[type="radio"] ~ span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  margin-left: -25px;
+  background-color: #fff;
+  box-shadow: #37386757 0px 0px 0px 1px inset;
+  border-radius: 50%;
+  z-index: -1;
+}
+.form-contact input[type="radio"]:checked ~ span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  margin-left: -25px;
+  background-color: #fff;
+  box-shadow: #373867 0px 0px 0px 5px inset;
+  border-radius: 50%;
+  z-index: -1;
+}
+.form-contact label {
+  width: 170px;
+  margin: 10px auto;
+}
+.form-contact p {
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: super;
+}
+.form-message textarea {
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 100px;
+  max-height: 300px;
+  margin: 5px 0;
+  padding-top: 5px;
+}
+form input[type="submit"] {
+  float: right;
+  height: 40px;
+  padding: 10px 30px;
+  background: #fff;
+  font-weight: bold;
 }

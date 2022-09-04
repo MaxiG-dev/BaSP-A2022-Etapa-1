@@ -226,10 +226,10 @@
           </div>
         </article>
       </section>
-      <section>
+      <section id="info">
         <h2>Information</h2>
         <form>
-          <div>
+          <div class="form-user">
             <label>Name
               <input type="text" name="name" placeholder="Enter your name" required>
             </label>
@@ -237,22 +237,25 @@
               <input type="email" name="email" placeholder="Enter your email" required>
             </label>
           </div>
-          <div>
+          <div class="form-contact">
             <p>Contact area</p>
             <label>
               <input type="radio" name="contact-area" value="Human resources" checked/>
-              Human resources
+              <span></span>
+              <p>Human resources</p>
             </label>
             <label>
               <input type="radio" name="contact-area" value="Systems"/>
-              Systems
+              <span></span>
+              <p>Systems</p>
             </label>
             <label>
               <input type="radio" name="contact-area" value="Commercialization"/>
-              Commercialization
+              <span></span>
+              <p>Commercialization</p>
             </label>
           </div>
-          <div>
+          <div class="form-message">
             <p>Message</p>
             <textarea placeholder="Your message" required></textarea>
           </div>
