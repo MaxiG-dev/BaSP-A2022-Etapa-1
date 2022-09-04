@@ -127,6 +127,7 @@ aside {
   padding: 20px;
   background: var(--gray);
   font-size: 20px;
+  z-index: -1;
 }
 aside input {
   width: 100%;
@@ -381,10 +382,45 @@ form input[type="submit"] {
 }
 #products ol, #business ol, #support ol {
   display: inline-block;
-  width: 250px;
+  width: 260px;
   padding: 10px;
+  padding-left: 50px;
   background: var(--gray);
+  list-style: decimal;
 }
 #products li, #business li, #support li {
   padding: 30px 20px;
+  padding-left: 0;
+}
+footer {
+  width: 100%;
+  height: 70px;
+  background-color: var(--gray);
+  border-top: solid 2px var(--blue);
+}
+footer div {
+  width: max-content;
+  margin: auto;
+}
+footer img {
+  margin-top: 5px;
+  padding: 3px;
+  opacity: 0.5;
+  filter: saturate(0);
+  -webkit-filter: saturate(0);
+  transition: opacity .3s ease-in-out, filter .3s ease-in-out;
+  -webkit-transition: opacity .3s ease-in-out, filter .3s ease-in-out;
+  -moz-transition: opacity .3s ease-in-out, filter .3s ease-in-out;
+  -ms-transition: opacity .3s ease-in-out, filter .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out, filter .3s ease-in-out;
+}
+footer img:hover {
+  opacity: 1;
+  filter: saturate(1);
+  -webkit-filter: saturate(1);
+}
+footer p {
+  top: 0;
+  text-align: center;
+  font-weight: 500;
 }
