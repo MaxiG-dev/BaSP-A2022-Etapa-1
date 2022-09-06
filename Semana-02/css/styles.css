@@ -185,7 +185,27 @@ aside p {
   font-weight: bold;
 }
 aside li {
-  margin: 30px 20px;
+  margin: 30px 10px;
+  padding: 10px;
+}
+aside li, aside a, aside i {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -webkit-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -moz-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -ms-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+aside li:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+aside li:hover a, aside li:hover i {
+  color: var(--white);
 }
 aside i {
   width: 35px;
@@ -250,6 +270,15 @@ section {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   font-size: 15px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -webkit-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -moz-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -ms-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+#home article button:hover {
+  background: var(--blue);
+  color: var(--white);
 }
 #home img {
   max-height: 500px;
@@ -273,13 +302,23 @@ section {
 #about article, #functions article {
   display: inline-block;
   width: 49.5%;
+  height: max-content;
   padding: 50px 10px 0;
 }
+#about span, #functions span {
+  position: absolute;
+  height: 150px;
+  width: 100px;
+  z-index: -1;
+}
 #about img, #functions img {
-  float: left;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: contain;
 }
 #about div, #functions div {
-  padding-left: 75px;
+  padding-left: 110px;
   line-height: 1.3;
   max-width: 600px;
 }
@@ -369,6 +408,15 @@ form input[type="submit"] {
   padding: 10px 30px;
   background: #fff;
   font-weight: bold;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -webkit-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -moz-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -ms-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+form input[type="submit"]:hover {
+  background: var(--blue);
+  color: var(--white);
 }
 #history div {
   display: inline-block;
