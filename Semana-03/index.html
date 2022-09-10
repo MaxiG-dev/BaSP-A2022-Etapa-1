@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <link 
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -21,12 +25,12 @@
   <body>
     <header>
       <span class="header-container">
-        <div class="header-menu">
+        <span class="header-menu">
           <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="header-logo">
+        </span>
+        <span class="header-logo">
           <a href="#">Trackgenix</a>
-        </div>
+        </span>
         <nav class="header-nav">
           <ul>
             <li>
@@ -41,19 +45,8 @@
             <li>
               <a href="#history">History</a>
             </li>
-            <li class="header-dropdown">
-              <a class="link-dropdown" href="#products">Product & Services</a>
-              <ul class="dropdown-active">
-                <li>
-                  <a href="#products">Product</a>
-                </li>
-                <li>
-                  <a href="#business">Business</a>
-                </li>
-                <li>
-                  <a href="#support">Support</a>
-                </li>
-              </ul>
+            <li>
+              <a href="#products">Product & Services</a>
             </li>
           </ul>
         </nav>
@@ -61,54 +54,54 @@
     </header>
     <aside>
       <span>
-        <input type="text" placeholder="Search">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <input class="sidebar-search" type="text" placeholder="Search">
+        <i class="sidebar-icon sidebar-icon-search fa-solid fa-magnifying-glass"></i>
       </span>
       <div>
-        <p>Menu</p>
+        <p class="sidebar-p">Menu</p>
         <ul>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-house-chimney"></i>
+          <li class="sidebar-li">
+            <a class="sidebar-links" href="#">
+              <i class="sidebar-icon fa-solid fa-house-chimney"></i>
               Home
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-user-plus"></i>
+          <li class="sidebar-li">
+            <a class="sidebar-links" href="#">
+              <i class="sidebar-icon fa-solid fa-user-plus"></i>
               Sing Up
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-user"></i>
+          <li class="sidebar-li">
+            <a class="sidebar-links" href="#">
+              <i class="sidebar-icon fa-solid fa-user"></i>
               Login
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-comment"></i>
+          <li class="sidebar-li">
+            <a class="sidebar-links" href="#">
+              <i class="sidebar-icon fa-solid fa-comment"></i>
               Contact
             </a>
           </li>
         </ul>
       </div>
-      <div>
-        <p>Get in Touch</p>
+      <div class="sidebar-contact">
+        <p class="sidebar-p">Get in Touch</p>
         <ul>
-          <li>
-            <a href="mailto:info@gigatech.com">
-              <i class="fa-solid fa-envelope"></i>
+          <li class="sidebar-li">
+            <a class="sidebar-links" href="mailto:info@gigatech.com">
+              <i class="sidebar-icon fa-solid fa-envelope"></i>
               info@gigatech.com
             </a>
           </li>
-          <li>
-            <i class="fa-solid fa-phone"></i>
+          <li class="sidebar-li">
+            <i class="sidebar-icon fa-solid fa-phone"></i>
             (+000) 000-000000
           </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-map-location-dot"></i>
+          <li class="sidebar-li">
+            <a class="sidebar-links" href="#">
+              <i class="sidebar-icon sidebar-icon-map fa-solid fa-map-location-dot"></i>
               1234 Somewhere road, Somewhere, XX 000-0000
             </a>
           </li>
@@ -118,7 +111,7 @@
     <main>
       <section id="home">
         <h1>Trackgenix</h1>
-        <article>
+        <article class="home-article">
           <h2>
             Make it easy to record hours worked on each project
             and work team at GigaTech Software Solutions SA
@@ -130,15 +123,15 @@
           </p>
           <button>Learn more</button>
         </article>
-        <img src="./assets/working.png" alt="Person working">
+        <img class="home-img" src="./assets/working.png" alt="Person working">
       </section>
       <section id="about">
         <h2>About Trackgenix</h2>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/light-bulb.png" alt="Light bulb icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Productivity booster</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -147,11 +140,11 @@
             </p>
           </div>
         </article>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/shhet-search.png" alt="Sheet search icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Work traceability</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -160,11 +153,11 @@
             </p>
           </div>
         </article>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/user.png" alt="User icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Leadership and team management</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -173,11 +166,11 @@
             </p>
           </div>
         </article>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/like.png" alt="Like icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Decision making</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -189,11 +182,11 @@
       </section>
       <section id="functions">
         <h2>Functions</h2>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/clock.png" alt="Clock icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Record of hours</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -202,11 +195,11 @@
             </p>
           </div>
         </article>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/sheet.png" alt="Reports icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Reports</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -215,11 +208,11 @@
             </p>
           </div>
         </article>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/gear.png" alt="Gear icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Resource management</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -228,11 +221,11 @@
             </p>
           </div>
         </article>
-        <article>
+        <article class="about-functions-article">
           <span>
             <img src="./assets/person.png" alt="Person icon">
           </span>
-          <div>
+          <div class="about-functions-div">
             <h3>Multiple roles</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur suscipit minima consequuntur
@@ -254,21 +247,21 @@
             </label>
           </div>
           <div class="form-contact">
-            <p>Contact area</p>
+            Contact area
             <label>
               <input type="radio" name="contact-area" value="Human resources" checked/>
               <span></span>
-              <p>Human resources</p>
+              Human resources
             </label>
             <label>
               <input type="radio" name="contact-area" value="Systems"/>
               <span></span>
-              <p>Systems</p>
+              Systems
             </label>
             <label>
               <input type="radio" name="contact-area" value="Commercialization"/>
               <span></span>
-              <p>Commercialization</p>
+              Commercialization
             </label>
           </div>
           <div class="form-message">
@@ -276,7 +269,7 @@
             <textarea placeholder="Your message" required></textarea>
           </div>
           <div>
-            <input type="submit" value="Send">
+            <input class="form-submit" type="submit" value="Send">
           </div>
         </form>
       </section>

@@ -1,0 +1,196 @@
+main {
+  margin-left: 320px;
+  margin-right: 10px;
+}
+section {
+  height: max-content;
+  margin-bottom: 50px;
+  padding: 20px;
+  font-size: 18px;
+}
+#home {
+  width: 100%;
+}
+.home-article {
+  width: 50%;
+  margin-top: 60px;
+  padding: 0 20px 0 0;
+  float: left;
+}
+.home-article h2 {
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+.home-article p {
+  background: var(--color-gray);
+  max-width: 600px;
+  padding: 20px;
+  margin-left: 20px;
+  line-height: 1.3;
+}
+.home-article button {
+  margin-top: 40px;
+  margin-left: 40px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #fff;
+  border: solid 1px;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+.home-article button:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+.home-img {
+  width: 50%;
+  max-height: 500px;
+  min-height: 390px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+#about, #functions {
+  width: 100%;
+  padding: 20px;
+  display: inline-block;
+}
+.about-functions-article {
+  display: inline-block;
+  width: 49.5%;
+  height: max-content;
+  padding: 50px 10px 0;
+}
+.about-functions-article span {
+  position: absolute;
+  height: 150px;
+  width: 100px;
+  z-index: -1;
+}
+.about-functions-article img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: contain;
+}
+.about-functions-article div {
+  padding-left: 110px;
+  line-height: 1.3;
+  max-width: 600px;
+}
+.about-functions-article h3 {
+  margin-bottom: 10px;
+}
+form {
+  width: 260px;
+  margin: 50px auto;
+  font-weight: bold;
+}
+form input, form textarea {
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: solid 1px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+.form-user div {
+  margin: 10px 0;
+}
+.form-user input {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+.form-contact input {
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+}
+.form-contact span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  margin-left: -25px;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: -1;
+}
+.form-contact input ~ span {
+  box-shadow: #37386757 0px 0px 0px 1px inset;
+}
+.form-contact input:checked ~ span {
+  box-shadow: #373867 0px 0px 0px 5px inset;
+}
+.form-contact label {
+  display: block;
+  width: 190px;
+  margin: 10px auto;
+}
+.form-message textarea {
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 100px;
+  max-height: 300px;
+  margin: 5px 0;
+  padding-top: 5px;
+}
+.form-submit {
+  float: right;
+  height: 40px;
+  padding: 10px 30px;
+  background: #fff;
+  font-weight: bold;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+.form-submit:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+#history div {
+  display: inline-block;
+  width: 49.5%;
+}
+#history h2 {
+  margin-bottom: 10px;
+}
+#history h3 {
+  margin-bottom: 50px;
+}
+#history div:first-of-type {
+  float: left;
+}
+#history p {
+  max-width: 600px;
+  padding: 10px;
+  line-height: 1.3;
+}
+#products h2, #business h2, #support h2 {
+  width: max-content;
+  margin-bottom: 30px;
+  padding: 10px;
+  background: var(--color-gray);
+}
+#products p, #business p, #support p {
+  max-width: 600px;
+  padding: 10px;
+  line-height: 1.3;
+}
+#products div, #business div, #support div {
+  float: left;
+  width: 49.5%;
+}
+#products ol, #business ol, #support ol {
+  display: inline-block;
+  width: 260px;
+  padding: 10px;
+  padding-left: 50px;
+  background: var(--color-gray);
+  list-style: decimal;
+}
+#products li, #business li, #support li {
+  padding: 30px 20px;
+  padding-left: 0;
+}
