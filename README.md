@@ -34,7 +34,17 @@ It is the ideal system to easily and efficiently manage your company.
   </summary>
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
   <ul align="left">
-    <li>Add the styles to the HTML using CSS to make it look identical to the landing screenflow 🔆</li>
+    <li>Add the styles to the HTML using CSS to make it look identical to the landing screenflow, without using flexbox. ✅</li>
+  </ul>
+</details>
+<details>
+  <summary>
+    <h3>⚜ Week 03 (click to expand)</h3>
+  </summary>
+  <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
+  <img align="right" src="https://maxig.dev/others/img/icons/responsive-icon.png" alt="CSS" height="30"/>
+  <ul align="left">
+    <li>Add styles to make a website responsive, with a mobile first design, using flexbox but without using grid 🔆</li>
   </ul>
 </details>
 
