@@ -1,21 +1,18 @@
-main {
-  margin-left: 320px;
-  margin-right: 10px;
-}
 section {
   height: max-content;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   padding: 20px;
   font-size: 18px;
 }
 #home {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
   width: 100%;
 }
 .home-article {
-  width: 50%;
-  margin-top: 60px;
+  margin-top: 20px;
   padding: 0 20px 0 0;
-  float: left;
 }
 .home-article h2 {
   margin-bottom: 30px;
@@ -45,9 +42,9 @@ section {
   color: var(--color-white);
 }
 .home-img {
-  width: 50%;
-  max-height: 500px;
-  min-height: 390px;
+  width: 100%;
+  aspect-ratio: 4/2.5;
+  margin-bottom: 20px;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -193,4 +190,20 @@ form input, form textarea {
 #products li, #business li, #support li {
   padding: 30px 20px;
   padding-left: 0;
+}
+@media screen and (min-width: 1024px) {
+  main {
+    margin-left: 320px;
+    margin-right: 10px;
+  }
+  section {
+    margin-bottom: 50px;
+  }
+  #home {
+    flex-direction: row;
+  }
+  .home-img {
+    width: 50%;
+    height: 80%;
+  }
 }

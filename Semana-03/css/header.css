@@ -36,7 +36,7 @@ header {
   background: var(--color-blue);
   color: var(--color-white);
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .header-logo {
     display: none;
   }
@@ -44,7 +44,7 @@ header {
     display: unset;
   }
 }
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .header-logo {
     display: unset;
     margin-left: 20px;

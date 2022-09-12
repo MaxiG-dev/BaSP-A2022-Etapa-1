@@ -58,13 +58,8 @@ aside {
   margin-top: auto;
   margin-bottom: 70px;
 }
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   aside {
     display: flex;
-  }
-}
-@media (max-height: 700px) {
-  aside {
-    font-size: 15px;
   }
 }
