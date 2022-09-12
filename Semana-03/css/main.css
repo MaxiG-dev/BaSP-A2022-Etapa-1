@@ -75,6 +75,8 @@ section {
   margin-bottom: 10px;
 }
 form {
+  display: flex;
+  flex-direction: column;
   width: 260px;
   margin: 50px auto;
   font-weight: bold;
@@ -98,27 +100,10 @@ form input, form textarea {
 .form-contact input {
   width: 18px;
   height: 18px;
-  opacity: 0;
-}
-.form-contact span {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  margin-top: 3px;
-  margin-left: -25px;
-  border-radius: 50%;
-  background-color: #fff;
-  z-index: -1;
-}
-.form-contact input ~ span {
-  box-shadow: #37386757 0px 0px 0px 1px inset;
-}
-.form-contact input:checked ~ span {
-  box-shadow: #373867 0px 0px 0px 5px inset;
 }
 .form-contact label {
   display: block;
-  width: 190px;
+  width: 200px;
   margin: 10px auto;
 }
 .form-message textarea {
@@ -129,8 +114,10 @@ form input, form textarea {
   margin: 5px 0;
   padding-top: 5px;
 }
+.form-submit-container {
+  margin-left: auto;
+}
 .form-submit {
-  float: right;
   height: 40px;
   padding: 10px 30px;
   background: #fff;
@@ -141,23 +128,19 @@ form input, form textarea {
   background: var(--color-blue);
   color: var(--color-white);
 }
-#history div {
-  display: inline-block;
-  width: 49.5%;
-}
 #history h2 {
   margin-bottom: 10px;
 }
 #history h3 {
   margin-bottom: 50px;
 }
-#history div:first-of-type {
-  float: left;
-}
 #history p {
-  max-width: 600px;
   padding: 10px;
   line-height: 1.3;
+}
+.history-article {
+  display: flex;
+  flex-direction: column;
 }
 #products h2, #business h2, #support h2 {
   width: max-content;
@@ -208,5 +191,8 @@ form input, form textarea {
   }
   .about-functions-article {
     width: 50%;
+  }
+  .history-article {
+    flex-direction: row;
   }
 }
