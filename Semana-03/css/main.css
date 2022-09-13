@@ -137,6 +137,10 @@ form input, form textarea {
   padding: 10px;
   line-height: 1.3;
 }
+#history {
+  max-width: 500px;
+  margin: auto;
+}
 .history-article {
   display: flex;
   flex-direction: column;
@@ -204,6 +208,9 @@ form input, form textarea {
   }
   .about-functions-article {
     width: 50%;
+  }
+  #history {
+    max-width: 100%;
   }
   .history-article {
     flex-direction: row;
