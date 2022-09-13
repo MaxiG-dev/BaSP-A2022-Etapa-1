@@ -127,6 +127,10 @@ form input, form textarea {
   background: var(--color-blue);
   color: var(--color-white);
 }
+#history {
+  max-width: 500px;
+  margin: auto;
+}
 #history h2 {
   margin-bottom: 10px;
 }
@@ -136,10 +140,6 @@ form input, form textarea {
 #history p {
   padding: 10px;
   line-height: 1.3;
-}
-#history {
-  max-width: 500px;
-  margin: auto;
 }
 .history-article {
   display: flex;
@@ -204,7 +204,6 @@ form input, form textarea {
   }
   .home-img {
     width: 50%;
-    height: 80%;
   }
   .about-functions-article {
     width: 50%;
