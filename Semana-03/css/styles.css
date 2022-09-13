@@ -17,15 +17,32 @@ body {
   height: max-content;
 }
 h1 {
-  font-size: 50px;
+  font-size: 35px;
 }
 h2 {
-  font-size: 40px;
+  font-size: 30px;
 }
 h3 {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
+}
+p {
+  font-size: 16px;
 }
 a {
   text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 18px;
+  }
 }

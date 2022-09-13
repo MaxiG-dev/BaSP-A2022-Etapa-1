@@ -26,6 +26,7 @@ It is the ideal system to easily and efficiently manage your company.
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" height="30"/>
   <ul align="left">
     <li>Create the basic HTML structure. ✅</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-01" target="_blank">🔗Link Semana 01</a></strong>
   </ul>
 </details>
 <details>
@@ -35,6 +36,7 @@ It is the ideal system to easily and efficiently manage your company.
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
   <ul align="left">
     <li>Add the styles to the HTML using CSS to make it look identical to the landing screenflow, without using flexbox. ✅</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-02" target="_blank">🔗Link Semana 02</a></strong>
   </ul>
 </details>
 <details>
@@ -45,6 +47,7 @@ It is the ideal system to easily and efficiently manage your company.
   <img align="right" src="https://maxig.dev/others/img/icons/responsive-icon.png" alt="CSS" height="30"/>
   <ul align="left">
     <li>Add styles to make a website responsive, with a mobile first design, using flexbox but without using grid 🔆</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-03" target="_blank">🔗Link Semana 03</a></strong>
   </ul>
 </details>
 

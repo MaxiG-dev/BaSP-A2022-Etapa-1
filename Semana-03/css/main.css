@@ -19,7 +19,6 @@ section {
   line-height: 1.3;
 }
 .home-article p {
-  background: var(--color-gray);
   max-width: 600px;
   padding: 20px;
   margin-left: 20px;
@@ -195,6 +194,9 @@ form input, form textarea {
   }
   #home {
     flex-direction: row;
+  }
+  .home-article p {
+    background: var(--color-gray);
   }
   .home-img {
     width: 50%;
