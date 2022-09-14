@@ -96,14 +96,26 @@ form input, form textarea {
   width: 100%;
   margin: 5px 0;
 }
-.form-contact input {
-  width: 18px;
-  height: 18px;
-}
 .form-contact label {
   display: block;
   width: 80%;
   margin: 10px auto;
+}
+.form-contact input {
+  width: 18px;
+  height: 18px;
+}
+.form-contact input::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: #37386757 0px 0px 0px 1px inset;
+  background-color: #fff;
+}
+.form-contact input:checked::after {
+  box-shadow: #373867 0px 0px 0px 5px inset;
 }
 .form-message textarea {
   max-width: 100%;

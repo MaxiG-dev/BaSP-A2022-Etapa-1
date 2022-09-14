@@ -9,6 +9,7 @@ header {
   background-color: var(--color-gray);
   border-bottom: solid 2px var(--color-blue);
   font-size: 20px;
+  z-index: 1;
 }
 .header-menu {
   position: absolute;
