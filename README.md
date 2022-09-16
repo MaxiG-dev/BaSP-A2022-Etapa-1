@@ -44,10 +44,20 @@ It is the ideal system to easily and efficiently manage your company.
     <h3>⚜ Week 03 (click to expand)</h3>
   </summary>
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
-  <img align="right" src="https://maxig.dev/others/img/icons/responsive-icon.png" alt="CSS" height="30"/>
+  <img align="right" src="https://maxig.dev/others/img/icons/responsive-icon.png" alt="Responsive icon" height="30"/>
   <ul align="left">
-    <li>Add styles to make a website responsive, with a mobile first design, using flexbox but without using grid 🔆</li>
+    <li>Add styles to make a website responsive, with a mobile first design, using flexbox but without using grid. ✅</li>
     <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-03" target="_blank">🔗Link Semana 03</a></strong>
+  </ul>
+</details>
+<details>
+  <summary>
+    <h3>⚜ Week 04 (click to expand)</h3>
+  </summary>
+  <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" height="30"/>
+  <ul align="left">
+    <li>JavaScript introduction and exercises. 🔆</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-04" target="_blank">🔗Link Semana 04</a></strong>
   </ul>
 </details>
 
