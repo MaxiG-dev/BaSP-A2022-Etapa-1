@@ -186,7 +186,6 @@ form input, form textarea {
   line-height: 1.3;
 }
 .products-services-article ol {
-  display: inline-block;
   margin: auto;
   padding-left: 50px;
   list-style: decimal;
