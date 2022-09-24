@@ -1,0 +1,48 @@
+:root {
+  --color-white: #f0f0f0;
+  --color-gray: #d9d9d9;
+  --color-blue: #373867;
+  --font-primary: 'Roboto', sans-serif;
+}
+* {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  color: var(--color-blue);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-white);
+  height: max-content;
+}
+h1 {
+  font-size: 35px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+p {
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 18px;
+  }
+}

@@ -6,8 +6,7 @@ It is the ideal system to easily and efficiently manage your company.
 
 ### How to use:
 <ol>
-  <li>Access the folder "<strong>Semana-02</strong>".</li>
-  <li>Open the file "<strong>index.html</strong>" on your browser.</li>
+  <li>Select any week below and click on link.</li>
 </ol>
 
 <details>
@@ -56,8 +55,20 @@ It is the ideal system to easily and efficiently manage your company.
   </summary>
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" height="30"/>
   <ul align="left">
-    <li>JavaScript introduction and exercises. 🔆</li>
+    <li>JavaScript introduction and exercises. ✅</li>
     <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-04" target="_blank">🔗Link Semana 04</a></strong>
+  </ul>
+</details>
+<details>
+  <summary>
+    <h3>⚜ Week 06 (click to expand)</h3>
+  </summary>
+  <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" height="30"/>
+  <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
+  <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" height="30"/>
+  <ul align="left">
+    <li>Create pages Login and Sing Up and validate whit JavaScript. 🔆</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-06" target="_blank">🔗Link Semana 06</a></strong>
   </ul>
 </details>
 
