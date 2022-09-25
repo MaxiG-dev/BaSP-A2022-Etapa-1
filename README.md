@@ -67,8 +67,8 @@ It is the ideal system to easily and efficiently manage your company.
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" height="30"/>
   <ul align="left">
-    <li>Create pages Login and Sing Up and validate whit JavaScript. 🔆</li>
-    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-06" target="_blank">🔗Link Semana 06</a></strong>
+    <li>Create Login and Sing Up pages and validate whit JavaScript. 🔆</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-06/views/login.html" target="_blank">🔗Link Semana 06</a></strong>
   </ul>
 </details>
 
