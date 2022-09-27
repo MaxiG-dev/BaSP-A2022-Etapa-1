@@ -1,11 +1,26 @@
-var email = document.querySelector('.email');
-var password = document.querySelector('.password');
-var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+var email;
+var password;
+var alerts;
+var emailExpression;
 
-email.addEventListener('blur', validateEmail)
+window.onload = function() {
+    variables();
+    email.addEventListener('blur', validateEmail)
+    email.addEventListener('focus', function() {
+        inputStyle(email, 'reset')
+    })
+    password.addEventListener('blur', validatePassword)
+    password.addEventListener('focus', function() {
+        inputStyle(password, 'reset')
+    })
+}
 
-// TODO: ADD FOCUS
-password.addEventListener('blur', validatePassword)
+function variables() {
+    email = document.querySelector('.email');
+    password = document.querySelector('.password');
+    alerts = document.querySelector('.alerts');
+    emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+}
 
 function validateEmail(input) {
     if (emailExpression.test(input.target.value)) {
@@ -45,15 +60,13 @@ function validateNumber(validate) {
 // TODO: Add logic to support multiple error messages
 
 function errorMessage(message='Error, please try again') {
-    if (document.querySelector('.error-message') === null) {
-        var errorMessage = document.createElement('div');
-        errorMessage.textContent = message;
-        errorMessage.classList.add('error-message');
-        document.body.appendChild(errorMessage);
-        setTimeout(() => {
-            errorMessage.remove();
-        }, 4000);
-    }
+    var errorMessage = document.createElement('div');
+    errorMessage.textContent = message;
+    errorMessage.classList.add('error-message');
+    alerts.appendChild(errorMessage);
+    setTimeout(() => {
+        errorMessage.remove();
+    }, 4000);
 }
 
 function inputStyle(input, type) {
@@ -61,6 +74,9 @@ function inputStyle(input, type) {
         input.style.border = 'solid 1px #D22904'
     }
     if (type === 'success') {
+        input.style.border = 'solid 1px green'
+    }
+    if (type === 'reset') {
         input.style.border = 'solid 1px #373867'
     }
 }
