@@ -1,7 +1,29 @@
+var firstName;
+var lastName;
+var dni;
+var birth;
+var phone;
+var locality;
+var address;
+var postalCode;
 var email;
 var password;
+var repeatPassword;
 var alerts;
 var emailExpression;
+
+
+// Nombre: Solo letras y debe tener más de 3 letras.
+// Apellido: Solo letras y debe tener más de 3 letras. 
+// DNI: Solo número y debe tener más de 7 números. 
+// Fecha de Nacimiento: Con formato dd/mm/aaaa.
+// Teléfono: Solo número y debe tener 10 números.
+// Dirección: Al menos 5 caracteres con letras, números y un espacio en el medio.
+// Localidad: Texto alfanumérico y debe tener más de 3 letras. 
+// Código Postal: Solo número y debe tener entre 4 y 5 números. 
+// Email: Debe tener un formato de email válido.
+// Contraseña: Al menos 8 caracteres, formados por letras y números.
+// Repetir Contraseña: Al menos 8 caracteres, formados por letras y números.
 
 window.onload = function() {
     variables();
@@ -9,8 +31,17 @@ window.onload = function() {
 }
 
 function variables() {
+    firstName = document.querySelector('.first-name');
+    lastName = document.querySelector('.last-name');
+    dni = document.querySelector('.dni');
+    birth = document.querySelector('.birth');
+    phone = document.querySelector('.phone');
+    locality = document.querySelector('.locality');
+    address = document.querySelector('.address');
+    postalCode = document.querySelector('.postal-code');
     email = document.querySelector('.email');
     password = document.querySelector('.password');
+    repeatPassword = document.querySelector('.repeat-password');
     alerts = document.querySelector('.alerts');
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 }
@@ -22,6 +53,10 @@ function eventsListeners() {
     })
     password.addEventListener('blur', validatePassword)
     password.addEventListener('focus', function() {
+        inputStyle(password, 'reset')
+    })
+    repeatPassword.addEventListener('blur', validateRepeatPassword)
+    repeatPassword.addEventListener('focus', function() {
         inputStyle(password, 'reset')
     })
 }
@@ -44,6 +79,19 @@ function validatePassword(input) {
         inputStyle(input.target, 'success');
     } else {
         errorMessage('Password need contains numbers and letters');
+        inputStyle(input.target, 'error');
+    }
+}
+
+function validateRepeatPassword(input) {
+    var validatePassword = input.target.value;
+    if (validatePassword.length === 0 ) {
+        errorMessage('Password cannot be empty');
+        inputStyle(input.target, 'error');
+    } else if (input.target.value === password.value) {
+        inputStyle(input.target, 'success');
+    } else {
+        errorMessage('Passwords not match');
         inputStyle(input.target, 'error');
     }
 }

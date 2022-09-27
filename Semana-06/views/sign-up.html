@@ -20,6 +20,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     >
+    <script src="../javascript/sign-up.js"></script>
     <title>Trackgenix</title>
   </head>
   <body>
@@ -107,6 +108,7 @@
       </div>
     </aside>
     <main>
+      <div class="alerts"></div>
       <article>
         <h1>Trackgenix</h1>
         <h2>GigaTech Software Solutions SA</h2>
@@ -123,37 +125,37 @@
         </div>
         <form class="form" action="">
           <label class="form-label" >First name
-            <input type="text" name="name" placeholder="Osvaldo" required>
+            <input class="first-name" type="text" name="name" placeholder="Osvaldo" required>
           </label>
           <label class="form-label" >Last name
-            <input type="text" name="name" placeholder="Martinez" required>
+            <input class="last-name" type="text" name="name" placeholder="Martinez" required>
           </label>
           <label class="form-label" >DNI
-            <input type="text" name="name" placeholder="12345678" required>
+            <input class="dni" type="text" name="name" placeholder="12345678" required>
           </label>
           <label class="form-label" >Date of birth
-            <input type="text" name="name" placeholder="dd/mm/yyyy" required>
+            <input class="birth" type="text" name="name" placeholder="dd/mm/yyyy" required>
           </label>
           <label class="form-label" >Phone
-            <input type="text" name="name" placeholder="+54 0 00 0000 0000" required>
+            <input class="phone" type="text" name="name" placeholder="+54 0 00 0000 0000" required>
           </label>
           <label class="form-label" >Locality
-            <input type="text" name="name" placeholder="Buenos Aires" required>
+            <input class="locality" type="text" name="name" placeholder="Buenos Aires" required>
           </label>
           <label class="form-label form-label-large" >Address
-            <input type="text" name="name" placeholder="St. example, 1234" required>
+            <input class="address" type="text" name="name" placeholder="St. example, 1234" required>
           </label>
           <label class="form-label" >Postal code
-            <input type="text" name="name" placeholder="11111" required>
+            <input class="postal-code" type="text" name="name" placeholder="11111" required>
           </label>
           <label class="form-label" >Email
-            <input type="text" name="name" placeholder="name@gigatech.com" required>
+            <input class="email" type="text" name="name" placeholder="name@gigatech.com" required>
           </label>
           <label class="form-label" >Password
-            <input type="text" name="name" placeholder="********" required>
+            <input class="password" type="password" name="name" placeholder="********" required>
           </label>
           <label class="form-label" >Repeat password
-            <input type="text" name="name" placeholder="********" required>
+            <input class="repeat-password" type="password" name="name" placeholder="********" required>
           </label>
           <button class="form-button" >Register</button>
         </form>
