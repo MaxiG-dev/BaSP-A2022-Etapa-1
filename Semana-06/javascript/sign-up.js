@@ -12,18 +12,11 @@ var repeatPassword;
 var alerts;
 var emailExpression;
 
-
-// Nombre: Solo letras y debe tener más de 3 letras.
-// Apellido: Solo letras y debe tener más de 3 letras. 
-// DNI: Solo número y debe tener más de 7 números. 
 // Fecha de Nacimiento: Con formato dd/mm/aaaa.
 // Teléfono: Solo número y debe tener 10 números.
 // Dirección: Al menos 5 caracteres con letras, números y un espacio en el medio.
 // Localidad: Texto alfanumérico y debe tener más de 3 letras. 
-// Código Postal: Solo número y debe tener entre 4 y 5 números. 
-// Email: Debe tener un formato de email válido.
-// Contraseña: Al menos 8 caracteres, formados por letras y números.
-// Repetir Contraseña: Al menos 8 caracteres, formados por letras y números.
+// Código Postal: Solo número y debe tener entre 4 y 5 números.
 
 window.onload = function() {
     variables();
@@ -47,6 +40,18 @@ function variables() {
 }
 
 function eventsListeners() {
+    firstName.addEventListener('blur', validateName)
+    firstName.addEventListener('focus', function() {
+        inputStyle(firstName, 'reset')
+    })
+    lastName.addEventListener('blur', validateName)
+    lastName.addEventListener('focus', function() {
+        inputStyle(lastName, 'reset')
+    })
+    dni.addEventListener('blur', validateDni)
+    dni.addEventListener('focus', function() {
+        inputStyle(dni, 'reset')
+    })
     email.addEventListener('blur', validateEmail)
     email.addEventListener('focus', function() {
         inputStyle(email, 'reset')
@@ -59,6 +64,32 @@ function eventsListeners() {
     repeatPassword.addEventListener('focus', function() {
         inputStyle(password, 'reset')
     })
+}
+
+function validateName(input) {
+    var name = input.target.value;
+    if (name.length < 3 ) {
+        errorMessage('Name need contains at least 3 characters');
+        inputStyle(input.target, 'error');
+    } else if (isNumber(name)) {
+        errorMessage('Name cannot contains numbers');
+        inputStyle(input.target, 'error');
+    } else {
+        inputStyle(input.target, 'success');
+    }
+}
+
+function validateDni(input) {
+    var validateDni = input.target.value;
+    if (isNaN(validateDni)) {
+        errorMessage('DNI only can contains numbers');
+        inputStyle(input.target, 'error');
+    } else if (validateDni < 8) {
+        errorMessage('DNI need contains at least 8 characters');
+        inputStyle(input.target, 'error');
+    } else {
+        inputStyle(input.target, 'success');
+    }
 }
 
 function validateEmail(input) {
