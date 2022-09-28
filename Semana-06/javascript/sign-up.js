@@ -115,11 +115,11 @@ function validateDni(input) {
     if (isNaN(validateDni)) {
         errorMessage('DNI only can contains numbers');
         inputStyle(input.target, 'error');
-    } else if (validateDni.length < 8) {
-        errorMessage('DNI need contains at least 8 characters');
-        inputStyle(input.target, 'error');
-    } else {
+    } else if (validateDni.length === 8) {
         inputStyle(input.target, 'success');
+    } else {
+        errorMessage('DNI need contains 8 characters');
+        inputStyle(input.target, 'error');
     }
 }
 
