@@ -85,7 +85,6 @@ function eventsListeners() {
 
 function validateFirstName(input) {
     var name = input.target.value;
-    console.log(input.value);
     if (name.length < 3) {
         errorMessage('Name need contains at least 3 characters');
         inputStyle(input.target, 'error');
@@ -153,7 +152,6 @@ function validateLocality(input) {
         inputStyle(input.target, 'error');
     } else {
         inputStyle(input.target, 'success');
-        console.log(input.value);
     }
 }
 
@@ -174,7 +172,6 @@ function validateAddress(input) {
         inputStyle(input.target, 'error');
     } else {
         inputStyle(input.target, 'success');
-        console.log(input.value);
     }
 }
 
@@ -277,5 +274,5 @@ function register() {
         "\nEmail: " + email.value +
         "\nPassword: " + password.value +
         "\nRepeat password: " + repeatPassword.value
-    )
+    );
 }
