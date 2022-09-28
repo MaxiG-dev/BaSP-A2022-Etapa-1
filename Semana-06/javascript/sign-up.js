@@ -11,6 +11,7 @@ var password;
 var repeatPassword;
 var alerts;
 var emailExpression;
+var formButton;
 var validates = {
     firstName: false,
     lastName: false,
@@ -23,12 +24,12 @@ var validates = {
     email: false,
     password: false,
     repeatPassword: false,
-}
+};
 
-window.onload = function() {
+window.onload = function () {
     variables();
     eventsListeners();
-}
+};
 
 function variables() {
     firstName = document.querySelector('.first-name');
@@ -43,59 +44,62 @@ function variables() {
     password = document.querySelector('.password');
     repeatPassword = document.querySelector('.repeat-password');
     alerts = document.querySelector('.alerts');
+    formButton = document.querySelector('.form-button');
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 }
 
 function eventsListeners() {
-    firstName.addEventListener('blur', validateFirstName)
-    firstName.addEventListener('focus', function() {
-        inputStyle(firstName, 'reset')
-    })
-    lastName.addEventListener('blur', validateLastName)
-    lastName.addEventListener('focus', function() {
-        inputStyle(lastName, 'reset')
-    })
-    dni.addEventListener('blur', validateDni)
-    dni.addEventListener('focus', function() {
-        inputStyle(dni, 'reset')
-    })
-    birth.addEventListener('blur', validateBirth)
-    birth.addEventListener('focus', function() {
-        inputStyle(birth, 'reset')
-    })
-    phone.addEventListener('blur', validatePhone)
-    phone.addEventListener('focus', function() {
-        inputStyle(phone, 'reset')
-    })
-    locality.addEventListener('blur', validateLocality)
-    locality.addEventListener('focus', function() {
-        inputStyle(locality, 'reset')
-    })
-    address.addEventListener('blur', validateAddress)
-    address.addEventListener('focus', function() {
-        inputStyle(address, 'reset')
-    })
-    postalCode.addEventListener('blur', validatePostal)
-    postalCode.addEventListener('focus', function() {
-        inputStyle(postalCode, 'reset')
-    })
-    email.addEventListener('blur', validateEmail)
-    email.addEventListener('focus', function() {
-        inputStyle(email, 'reset')
-    })
-    password.addEventListener('blur', validatePassword)
-    password.addEventListener('focus', function() {
-        inputStyle(password, 'reset')
-    })
-    repeatPassword.addEventListener('blur', validateRepeatPassword)
-    repeatPassword.addEventListener('focus', function() {
-        inputStyle(repeatPassword, 'reset')
-    })
+    firstName.addEventListener('blur', validateFirstName);
+    firstName.addEventListener('focus', function () {
+        inputStyle(firstName, 'reset');
+    });
+    lastName.addEventListener('blur', validateLastName);
+    lastName.addEventListener('focus', function () {
+        inputStyle(lastName, 'reset');
+    });
+    dni.addEventListener('blur', validateDni);
+    dni.addEventListener('focus', function () {
+        inputStyle(dni, 'reset');
+    });
+    birth.addEventListener('blur', validateBirth);
+    birth.addEventListener('focus', function () {
+        inputStyle(birth, 'reset');
+    });
+    phone.addEventListener('blur', validatePhone);
+    phone.addEventListener('focus', function () {
+        inputStyle(phone, 'reset');
+    });
+    locality.addEventListener('blur', validateLocality);
+    locality.addEventListener('focus', function () {
+        inputStyle(locality, 'reset');
+    });
+    address.addEventListener('blur', validateAddress);
+    address.addEventListener('focus', function () {
+        inputStyle(address, 'reset');
+    });
+    postalCode.addEventListener('blur', validatePostal);
+    postalCode.addEventListener('focus', function () {
+        inputStyle(postalCode, 'reset');
+    });
+    email.addEventListener('blur', validateEmail);
+    email.addEventListener('focus', function () {
+        inputStyle(email, 'reset');
+    });
+    password.addEventListener('blur', validatePassword);
+    password.addEventListener('focus', function () {
+        inputStyle(password, 'reset');
+    });
+    repeatPassword.addEventListener('blur', validateRepeatPassword);
+    repeatPassword.addEventListener('focus', function () {
+        inputStyle(repeatPassword, 'reset');
+    });
+    formButton.addEventListener('click', register);
 }
 
 function validateFirstName(input) {
     var name = input.target.value;
-    if (name.length < 3 ) {
+    console.log(input.value);
+    if (name.length < 3) {
         errorMessage('Name need contains at least 3 characters');
         inputStyle(input.target, 'error');
         validates.firstName = false;
@@ -111,7 +115,7 @@ function validateFirstName(input) {
 
 function validateLastName(input) {
     var name = input.target.value;
-    if (name.length < 3 ) {
+    if (name.length < 3) {
         errorMessage('Name need contains at least 3 characters');
         inputStyle(input.target, 'error');
         validates.lastName = false;
@@ -171,20 +175,20 @@ function validatePhone(input) {
 
 function validateLocality(input) {
     var validateLocality = input.target.value;
-    if (validateLocality.length < 5 ) {
+    if (validateLocality.length < 5) {
         errorMessage('Locality need contains at least 5 characters');
         inputStyle(input.target, 'error');
         validates.locality = false;
     } else {
         inputStyle(input.target, 'success');
         validates.locality = true;
-        console.log(input.value)
+        console.log(input.value);
     }
 }
 
 function validateAddress(input) {
     var validateAddress = input.target.value;
-    if (validateAddress.length < 5 ) {
+    if (validateAddress.length < 5) {
         errorMessage('Address need contains at least 5 characters');
         inputStyle(input.target, 'error');
         validates.address = false;
@@ -192,16 +196,19 @@ function validateAddress(input) {
         errorMessage('Address need contains numbers and letters');
         inputStyle(input.target, 'error');
         validates.address = false;
-    } else if (validateAddress.substring(3, validateAddress.length - 2).indexOf(' ') === -1) {
+    } else if (
+        validateAddress
+            .substring(3, validateAddress.length - 2)
+            .indexOf(' ') === -1
+    ) {
         errorMessage('Address needs a space in between');
         inputStyle(input.target, 'error');
         validates.address = false;
     } else {
         inputStyle(input.target, 'success');
         validates.address = true;
-        console.log(input.value)
+        console.log(input.value);
     }
-
 }
 
 function validatePostal(input) {
@@ -233,7 +240,7 @@ function validateEmail(input) {
 
 function validatePassword(input) {
     var validatePassword = input.target.value;
-    if (validatePassword.length < 8 ) {
+    if (validatePassword.length < 8) {
         errorMessage('Password need contains at least 8 characters');
         inputStyle(input.target, 'error');
         validates.password = false;
@@ -249,7 +256,7 @@ function validatePassword(input) {
 
 function validateRepeatPassword(input) {
     var validatePassword = input.target.value;
-    if (validatePassword.length === 0 ) {
+    if (validatePassword.length === 0) {
         errorMessage('Password cannot be empty');
         inputStyle(input.target, 'error');
         validates.repeatPassword = false;
@@ -265,7 +272,7 @@ function validateRepeatPassword(input) {
 
 function isString(validate) {
     for (var i = 0; i < validate.length; i++) {
-        if(isNaN(validate.slice(i, i + 1))) {
+        if (isNaN(validate.slice(i, i + 1))) {
             return true;
         }
     }
@@ -273,13 +280,13 @@ function isString(validate) {
 
 function isNumber(validate) {
     for (var i = 0; i < validate.length; i++) {
-        if(!isNaN(validate.slice(i, i + 1))) {
+        if (!isNaN(validate.slice(i, i + 1))) {
             return true;
         }
     }
 }
 
-function errorMessage(message='Error, please try again') {
+function errorMessage(message = 'Error, please try again') {
     var errorMessage = document.createElement('div');
     errorMessage.textContent = message;
     errorMessage.classList.add('error-message');
@@ -291,12 +298,28 @@ function errorMessage(message='Error, please try again') {
 
 function inputStyle(input, type) {
     if (type === 'error') {
-        input.style.border = 'solid 1px #D22904'
+        input.style.border = 'solid 1px #D22904';
     }
     if (type === 'success') {
-        input.style.border = 'solid 1px green'
+        input.style.border = 'solid 1px green';
     }
     if (type === 'reset') {
-        input.style.border = 'solid 1px #373867'
+        input.style.border = 'solid 1px #373867';
     }
+}
+
+function register() {
+    alert(
+        "First name: " + firstName.value +
+        "\nLast name: " + lastName.value +
+        "\nDNI: " + dni.value +
+        "\nDate of birth: " + birth.value +
+        "\nPhone: " + phone.value +
+        "\nLocality: " + locality.value +
+        "\nAddress: " + address.value +
+        "\nPostal code: " + postalCode.value +
+        "\nEmail: " + email.value +
+        "\nPassword: " + password.value +
+        "\nRepeat password: " + repeatPassword.value
+    )
 }
