@@ -1,0 +1,87 @@
+:root {
+  --color-white: #f0f0f0;
+  --color-gray: #d9d9d9;
+  --color-blue: #373867;
+  --font-primary: 'Roboto', sans-serif;
+}
+* {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  color: var(--color-blue);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-white);
+  height: max-content;
+}
+h1 {
+  font-size: 35px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+p {
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+}
+.alerts {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+}
+.error-message {
+  height: 50px;
+  width: max-content;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  background: var(--color-white);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  color: #D22904;
+  font-weight: 500;
+  text-align: center;
+  line-height: 50px;
+  transition: all 0.5s;
+  transform: translateX(500px);
+  animation: message 4s ease-in-out;
+}
+@keyframes message {
+  0% {
+      transform: translateX(500px);
+  }
+  10% {
+      transform: translateX(0px);
+  }
+  90% {
+      transform: translateX(0px);
+  }
+  100% {
+      transform: translateX(500px);
+  }
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
