@@ -31,6 +31,7 @@ window.onload = function () {
     variables();
     eventsListeners();
     syncLocalStorage();
+    disableBtn();
 };
 
 function variables() {
@@ -80,198 +81,198 @@ function eventsListeners() {
 function validateFirstName(event) {
     var name = event.target.value;
     if (name.length < 4) {
-        errorMessage(event.target, 'First name need contains at least 4 characters');
-        inputStyle(event.target, 'error');
         validates.firstName[0] = false;
         validates.firstName[1] = 'ERROR First name need contains at least 4 characters';
-    } else if (isNumber(name)) {
-        errorMessage(event.target, 'First name cannot contains numbers');
+        errorMessage(event.target, 'First name need contains at least 4 characters');
         inputStyle(event.target, 'error');
+    } else if (isNumber(name)) {
         validates.firstName[0] = false;
         validates.firstName[1] = 'First name cannot contains numbers';
+        errorMessage(event.target, 'First name cannot contains numbers');
+        inputStyle(event.target, 'error');
     } else {
-        inputStyle(event.target, 'success');
         validates.firstName[0] = true;
         validates.firstName[1] = event.target.value;
+        inputStyle(event.target, 'success');
     }
 }
 
 function validateLastName(event) {
     var name = event.target.value;
     if (name.length < 4) {
-        errorMessage(event.target, 'Last name need contains at least 4 characters');
-        inputStyle(event.target, 'error');
         validates.lastName[0] = false;
         validates.lastName[1] = 'ERROR Last name need contains at least 4 characters';
-    } else if (isNumber(name)) {
-        errorMessage(event.target, 'Last name cannot contains numbers');
+        errorMessage(event.target, 'Last name need contains at least 4 characters');
         inputStyle(event.target, 'error');
+    } else if (isNumber(name)) {
         validates.lastName[0] = false;
         validates.lastName[1] = 'ERROR Last name cannot contains numbers';
+        errorMessage(event.target, 'Last name cannot contains numbers');
+        inputStyle(event.target, 'error');
     } else {
-        inputStyle(event.target, 'success');
         validates.lastName[0] = true;
         validates.lastName[1] = event.target.value;
+        inputStyle(event.target, 'success');
     }
 }
 
 function validateDni(event) {
     var validateDni = event.target.value;
     if (isNaN(validateDni)) {
-        errorMessage(event.target, 'DNI only can contains numbers');
-        inputStyle(event.target, 'error');
         validates.dni[0] = false;
         validates.dni[1] = 'ERROR DNI only can contains numbers';
+        errorMessage(event.target, 'DNI only can contains numbers');
+        inputStyle(event.target, 'error');
     } else if (validateDni.length === 8) {
-        inputStyle(event.target, 'success');
         validates.dni[0] = true;
         validates.dni[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'DNI need contains 8 characters');
-        inputStyle(event.target, 'error');
         validates.dni[0] = false;
         validates.dni[1] = 'ERROR DNI need contains 8 characters';
+        errorMessage(event.target, 'DNI need contains 8 characters');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validateBirth(event) {
     var validateBirth = event.target.value;
     if (validateBirth === '') {
-        errorMessage(event.target, 'Date of birth cannot be empty');
-        inputStyle(event.target, 'error');
         validates.birth[0] = false;
         validates.birth[1] = 'ERROR Date of birth cannot be empty';
+        errorMessage(event.target, 'Date of birth cannot be empty');
+        inputStyle(event.target, 'error');
     } else {
-        inputStyle(event.target, 'success');
         validates.birth[0] = true;
         validates.birth[1] = event.target.value.slice(5).replace('-','/') + '/' + event.target.value.slice(0,4);
+        inputStyle(event.target, 'success');
     }
 }
 
 function validatePhone(event) {
     var validatePhone = event.target.value;
     if (isNaN(validatePhone)) {
-        errorMessage(event.target, 'Phone only can contains numbers');
-        inputStyle(event.target, 'error');
         validates.phone[0] = false;
         validates.phone[1] = 'ERROR Phone only can contains numbers';
+        errorMessage(event.target, 'Phone only can contains numbers');
+        inputStyle(event.target, 'error');
     } else if (validatePhone.length === 10) {
-        inputStyle(event.target, 'success');
         validates.phone[0] = true;
         validates.phone[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Phone need contains 10 characters');
-        inputStyle(event.target, 'error');
         validates.phone[0] = false;
         validates.phone[1] = 'ERROR Phone need contains 10 characters';
+        errorMessage(event.target, 'Phone need contains 10 characters');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validateLocality(event) {
     var validateLocality = event.target.value;
     if (validateLocality.length < 3) {
-        errorMessage(event.target, 'Locality need contains at least 3 characters');
-        inputStyle(event.target, 'error');
         validates.locality[0] = false;
         validates.locality[1] = 'ERROR Locality need contains at least 3 characters';
+        errorMessage(event.target, 'Locality need contains at least 3 characters');
+        inputStyle(event.target, 'error');
     } else {
-        inputStyle(event.target, 'success');
         validates.locality[0] = true;
         validates.locality[1] = event.target.value;
+        inputStyle(event.target, 'success');
     }
 }
 
 function validateAddress(event) {
     var validateAddress = event.target.value;
     if (validateAddress.length < 5) {
-        errorMessage(event.target, 'Address need contains at least 5 characters');
-        inputStyle(event.target, 'error');
         validates.address[0] = false;
         validates.address[1] = 'ERROR Address need contains at least 5 characters';
-    } else if (!(isNumber(validateAddress) && isString(validateAddress))) {
-        errorMessage(event.target, 'Address need contains numbers and letters');
+        errorMessage(event.target, 'Address need contains at least 5 characters');
         inputStyle(event.target, 'error');
+    } else if (!(isNumber(validateAddress) && isString(validateAddress))) {
         validates.address[0] = false;
         validates.address[1] = 'ERROR Address need contains numbers and letters';
-    } else if (validateAddress.substring(1, validateAddress.length - 1).indexOf(' ') === -1) {
-        errorMessage(event.target, 'Address needs a space in between');
+        errorMessage(event.target, 'Address need contains numbers and letters');
         inputStyle(event.target, 'error');
+    } else if (validateAddress.substring(1, validateAddress.length - 1).indexOf(' ') === -1) {
         validates.address[0] = false;
         validates.address[1] = 'ERROR Address needs a space in between';
+        errorMessage(event.target, 'Address needs a space in between');
+        inputStyle(event.target, 'error');
     } else {
-        inputStyle(event.target, 'success');
         validates.address[0] = true;
         validates.address[1] = event.target.value;
+        inputStyle(event.target, 'success');
     }
 }
 
 function validatePostal(event) {
     var validatePostal = event.target.value;
     if (isNaN(validatePostal)) {
-        errorMessage(event.target, 'Postal code only can contains numbers');
-        inputStyle(event.target, 'error');
         validates.postalCode[0] = false;
         validates.postalCode[1] = 'ERROR Postal code only can contains numbers';
+        errorMessage(event.target, 'Postal code only can contains numbers');
+        inputStyle(event.target, 'error');
     } else if (validatePostal.length === 4 || validatePostal.length === 5) {
-        inputStyle(event.target, 'success');
         validates.postalCode[0] = true;
         validates.postalCode[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Postal code need contains 4-5 characters');
-        inputStyle(event.target, 'error');
         validates.postalCode[0] = false;
         validates.postalCode[1] = 'ERROR Postal code need contains 4-5 characters';
+        errorMessage(event.target, 'Postal code need contains 4-5 characters');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validateEmail(event) {
     if (emailExpression.test(event.target.value)) {
-        inputStyle(event.target, 'success');
         validates.email[0] = true;
         validates.email[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Email not valid');
-        inputStyle(event.target, 'error');
         validates.email[0] = false;
         validates.email[1] = 'ERROR Email not valid';
+        errorMessage(event.target, 'Email not valid');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validatePassword(event) {
     var validatePassword = event.target.value;
     if (validatePassword.length < 8) {
-        errorMessage(event.target, 'Password need contains at least 8 characters');
-        inputStyle(event.target, 'error');
         validates.password[0] = false;
         validates.password[1] = 'ERROR Password need contains at least 8 characters';
+        errorMessage(event.target, 'Password need contains at least 8 characters');
+        inputStyle(event.target, 'error');
     } else if (isNumber(validatePassword) && isString(validatePassword)) {
-        inputStyle(event.target, 'success');
         validates.password[0] = true;
         validates.password[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Password need contains numbers and letters');
-        inputStyle(event.target, 'error');
         validates.password[0] = false;
         validates.password[1] = 'ERROR Password need contains numbers and letters';
+        errorMessage(event.target, 'Password need contains numbers and letters');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validateRepeatPassword(event) {
     var validatePassword = event.target.value;
     if (validatePassword.length < 8) {
-        errorMessage(event.target, 'Repeat password need contains at least 8 characters');
-        inputStyle(event.target, 'error');
         validates.repeatPassword[0] = false;
         validates.repeatPassword[1] = 'ERROR Repeat password need contains at least 8 characters';
-    } else if (event.target.value === password.value) {
-        inputStyle(event.target, 'success');
+        errorMessage(event.target, 'Repeat password need contains at least 8 characters');
+        inputStyle(event.target, 'error');
+        } else if (event.target.value === password.value) {
         validates.repeatPassword[0] = true;
         validates.repeatPassword[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Passwords not match');
-        inputStyle(event.target, 'error');
         validates.repeatPassword[0] = false;
         validates.repeatPassword[1] = 'ERROR Passwords not match';
+        errorMessage(event.target, 'Passwords not match');
+        inputStyle(event.target, 'error');
     }
 }
 
@@ -306,6 +307,7 @@ function errorMessage(element, message = 'Error, please try again') {
 }
 
 function inputStyle(event, type) {
+    disableBtn();
     if (type === 'error') {
         event.style.border = 'solid 1px #D22904';
     }
@@ -315,22 +317,6 @@ function inputStyle(event, type) {
     if (type === 'reset') {
         event.style.border = 'solid 1px #373867';
     }
-}
-
-function invalidForm() {
-    alert(
-        "First name: " + validates.firstName[1] +
-        "\nLast name: " + validates.lastName[1] +
-        "\nDNI: " + validates.dni[1] +
-        "\nDate of birth: " + validates.birth[1] +
-        "\nPhone: " + validates.phone[1] +
-        "\nLocality: " + validates.locality[1] +
-        "\nAddress: " + validates.address[1] +
-        "\nPostal code: " + validates.postalCode[1] +
-        "\nEmail: " + validates.email[1] +
-        "\nPassword: " + validates.password[1] +
-        "\nRepeat password: " + validates.repeatPassword[1]
-    );
 }
 
 function validateInputs() {
@@ -358,8 +344,6 @@ function requestSingUp(event) {
             '&email=' + validates.email[1] +
             '&password=' + validates.password[1]
             );
-    } else {
-        invalidForm();
     }
 }
 
@@ -395,7 +379,7 @@ function request(URL) {
                 error += '\n'+data.errors[i].msg;
                 }
                 alert('ERROR: ' + error);
-                throw new Error('ERROR: ' + error);
+                throw new Error(error);
             } 
         }
     })
@@ -433,3 +417,11 @@ function syncLocalStorage(data='') {
     }
 }
 
+function disableBtn() {
+    if (validateInputs()) {
+        formButton.classList.remove('disable-btn');
+    }
+    else {
+        formButton.classList.add('disable-btn');
+    }
+}

@@ -44,6 +44,10 @@ a {
   text-align: center;
   line-height: 1.6;
 }
+.disable-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 40px;

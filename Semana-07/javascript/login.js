@@ -13,6 +13,7 @@ var validates = {
 window.onload = function() {
     variables();
     eventsListeners();
+    disableBtn();
 }
 
 function variables() {
@@ -36,33 +37,33 @@ function eventsListeners() {
 
 function validateEmail(event) {
     if (emailExpression.test(event.target.value)) {
-        inputStyle(event.target, 'success');
         validates.email[0] = true;
         validates.email[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Email not valid');
-        inputStyle(event.target, 'error');
         validates.email[0] = false;
         validates.email[1] = 'ERROR Email not valid';
+        errorMessage(event.target, 'Email not valid');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validatePassword(event) {
     var validatePassword = event.target.value;
     if (validatePassword.length < 8 ) {
-        errorMessage(event.target, 'Password need contains at least 8 characters');
-        inputStyle(event.target, 'error');
         validates.password[0] = false;
         validates.password[1] = 'ERROR Password need contains at least 8 characters';
+        errorMessage(event.target, 'Password need contains at least 8 characters');
+        inputStyle(event.target, 'error');
     } else if (isNumber(validatePassword) && isString(validatePassword)) {
-        inputStyle(event.target, 'success');
         validates.password[0] = true;
         validates.password[1] = event.target.value;
+        inputStyle(event.target, 'success');
     } else {
-        errorMessage(event.target, 'Password need contains numbers and letters');
-        inputStyle(event.target, 'error');
         validates.password[0] = false;
         validates.password[1] = 'ERROR Password need contains numbers and letters';
+        errorMessage(event.target, 'Password need contains numbers and letters');
+        inputStyle(event.target, 'error');
     }
 }
 
@@ -97,6 +98,7 @@ function errorMessage(element, message = 'Error, please try again') {
 }
 
 function inputStyle(input, type) {
+    disableBtn();
     if (type === 'error') {
         input.style.border = 'solid 1px #D22904'
     }
@@ -106,13 +108,6 @@ function inputStyle(input, type) {
     if (type === 'reset') {
         input.style.border = 'solid 1px #373867'
     }
-}
-
-function invalidForm() {
-    alert(
-        "Email: " + validates.email[1] +
-        "\nPassword: " + validates.password[1]
-    );
 }
 
 function signUpHref(event) {
@@ -133,8 +128,6 @@ function requestLogin(event) {
     event.preventDefault();
     if (validateInputs()) {
         request(API_URL + '?email=' + validates.email[1] + '&password=' + validates.password[1]);
-    } else {
-        invalidForm();
     }
 }
 
@@ -163,4 +156,13 @@ function request(URL) {
             } 
         }
     })
+}
+
+function disableBtn() {
+    if (validateInputs()) {
+        formButton.classList.remove('disable-btn');
+    }
+    else {
+        formButton.classList.add('disable-btn');
+    }
 }
