@@ -49,7 +49,7 @@ function variables() {
     alerts = document.querySelector('.alerts');
     formButton = document.querySelector('.form-button');
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-    API_URL = 'https://basp-m2022-api-rest-server.herokuapp.com/signup'
+    API_URL = 'https://basp-m2022-api-rest-server.herokuapp.com/signup';
 }
 
 function eventsListeners() {
@@ -355,7 +355,6 @@ function request(URL) {
         return res.json()
     })
     .then(function(data) {
-        console.log(data)
         if(data.success) {
             syncLocalStorage(data.data)
             alert(
@@ -372,11 +371,10 @@ function request(URL) {
                 "\nPassword: " + data.data.password
             );
         } else {
-            console.log(data)
             if (res.status < 200 || res.status > 299) {
                 var error = '';
                 for (var i = 0; i < data.errors.length; i++) {
-                error += '\n'+data.errors[i].msg;
+                error += '\n' + data.errors[i].msg;
                 }
                 alert('ERROR: ' + error);
                 throw new Error(error);

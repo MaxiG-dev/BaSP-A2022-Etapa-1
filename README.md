@@ -67,8 +67,18 @@ It is the ideal system to easily and efficiently manage your company.
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" height="30"/>
   <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" height="30"/>
   <ul align="left">
-    <li>Create Login and Sing Up pages and validate whit JavaScript. 🔆</li>
-    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-06/views/login.html" target="_blank">🔗Link Semana 06</a></strong>
+    <li>Create Login and Sing Up pages and validate whit JavaScript. ✅</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-06/views" target="_blank">🔗Link Semana 06</a></strong>
+  </ul>
+</details>
+<details>
+  <summary>
+    <h3>⚜ Week 07 (click to expand)</h3>
+  </summary>
+  <img align="right" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" height="30"/>
+  <ul align="left">
+    <li>Make a HTTP request and consume an API. 🔆</li>
+    <strong><a href="https://maxig-dev.github.io/BaSP-A2022-Etapa-1/Semana-07/views" target="_blank">🔗Link Semana 07</a></strong>
   </ul>
 </details>
 
