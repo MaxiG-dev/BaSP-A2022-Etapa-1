@@ -30,6 +30,7 @@ var validates = {
 window.onload = function () {
     variables();
     eventsListeners();
+    syncLocalStorage();
 };
 
 function variables() {
@@ -372,6 +373,7 @@ function request(URL) {
     .then(function(data) {
         console.log(data)
         if(data.success) {
+            syncLocalStorage(data.data)
             alert(
                 "Register success: " + data.msg +
                 "\nFirst name: " + data.data.name +
@@ -386,10 +388,11 @@ function request(URL) {
                 "\nPassword: " + data.data.password
             );
         } else {
+            console.log(data)
             if (res.status < 200 || res.status > 299) {
                 var error = '';
-                for (var index = 0; index < data.errors.length; index++) {
-                error += '\n'+data.errors[index].msg;
+                for (var i = 0; i < data.errors.length; i++) {
+                error += '\n'+data.errors[i].msg;
                 }
                 alert('ERROR: ' + error);
                 throw new Error('ERROR: ' + error);
@@ -397,3 +400,36 @@ function request(URL) {
         }
     })
 }
+
+function syncLocalStorage(data='') {
+    if (data === '') {
+        if (localStorage.length !== 0) {
+        var objLocalStorage = JSON.parse(localStorage.getItem('form'))
+        firstName.value = objLocalStorage.name;
+        lastName.value = objLocalStorage.lastName;
+        dni.value = objLocalStorage.dni;
+        birth.value = objLocalStorage.dob.slice(6)+'-'+objLocalStorage.dob.slice(0,2)+'-'+objLocalStorage.dob.slice(3,5);
+        phone.value = objLocalStorage.phone;
+        locality.value = objLocalStorage.city;
+        address.value = objLocalStorage.address
+        postalCode.value = objLocalStorage.zip;
+        email.value = objLocalStorage.email;
+        password.value = objLocalStorage.password;
+        repeatPassword.value = objLocalStorage.password;
+        validates.firstName = [true, objLocalStorage.name];
+        validates.lastName = [true, objLocalStorage.lastName];
+        validates.dni = [true, objLocalStorage.dni];
+        validates.birth = [true, objLocalStorage.dob];
+        validates.phone = [true, objLocalStorage.phone];
+        validates.locality = [true, objLocalStorage.city];
+        validates.address = [true, objLocalStorage.address];
+        validates.postalCode = [true, objLocalStorage.zip];
+        validates.email = [true, objLocalStorage.email];
+        validates.password = [true, objLocalStorage.password];
+        validates.repeatPassword = [true, objLocalStorage.password];
+        }
+    } else {
+        localStorage.setItem('form', JSON.stringify(data))
+    }
+}
+
