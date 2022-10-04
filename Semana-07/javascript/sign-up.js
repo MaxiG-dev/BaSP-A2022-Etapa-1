@@ -1,3 +1,4 @@
+var API_URL;
 var firstName;
 var lastName;
 var dni;
@@ -46,6 +47,7 @@ function variables() {
     alerts = document.querySelector('.alerts');
     formButton = document.querySelector('.form-button');
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    API_URL = 'https://basp-m2022-api-rest-server.herokuapp.com/signup'
 }
 
 function eventsListeners() {
@@ -71,7 +73,7 @@ function eventsListeners() {
     password.addEventListener('focus', reset);
     repeatPassword.addEventListener('blur', validateRepeatPassword);
     repeatPassword.addEventListener('focus', reset);
-    formButton.addEventListener('click', register);
+    formButton.addEventListener('click', requestSingUp);
 }
 
 function validateFirstName(event) {
@@ -141,7 +143,7 @@ function validateBirth(event) {
     } else {
         inputStyle(event.target, 'success');
         validates.birth[0] = true;
-        validates.birth[1] = event.target.value;
+        validates.birth[1] = event.target.value.slice(5).replace('-','/') + '/' + event.target.value.slice(0,4);
     }
 }
 
@@ -314,8 +316,7 @@ function inputStyle(event, type) {
     }
 }
 
-function register(event) {
-    event.preventDefault();
+function invalidForm() {
     alert(
         "First name: " + validates.firstName[1] +
         "\nLast name: " + validates.lastName[1] +
@@ -329,4 +330,70 @@ function register(event) {
         "\nPassword: " + validates.password[1] +
         "\nRepeat password: " + validates.repeatPassword[1]
     );
+}
+
+function validateInputs() {
+    for (var element in validates) {
+        if (!validates[element][0]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function requestSingUp(event) {
+    event.preventDefault();
+    if (validateInputs()) {
+        request(
+            API_URL +
+            '?name=' + validates.firstName[1] +
+            '&lastName=' + validates.lastName[1] +
+            '&dni=' + validates.dni[1] +
+            '&dob=' + validates.birth[1] +
+            '&phone=' + validates.phone[1] +
+            '&address=' + validates.address[1] +
+            '&city=' + validates.locality[1] +
+            '&zip=' + validates.postalCode[1] +
+            '&email=' + validates.email[1] +
+            '&password=' + validates.password[1]
+            );
+    } else {
+        invalidForm();
+    }
+}
+
+function request(URL) {
+    var res;
+    fetch(URL)
+    .then(function(response) {
+        res = response
+        return res.json()
+    })
+    .then(function(data) {
+        console.log(data)
+        if(data.success) {
+            alert(
+                "Register success: " + data.msg +
+                "\nFirst name: " + data.data.name +
+                "\nLast name: " + data.data.lastName +
+                "\nDNI: " + data.data.dni +
+                "\nDate of birth: " + data.data.dob +
+                "\nPhone: " + data.data.phone +
+                "\nLocality: " + data.data.city +
+                "\nAddress: " + data.data.address +
+                "\nPostal code: " + data.data.zip +
+                "\nEmail: " + data.data.email +
+                "\nPassword: " + data.data.password
+            );
+        } else {
+            if (res.status < 200 || res.status > 299) {
+                var error = '';
+                for (var index = 0; index < data.errors.length; index++) {
+                error += '\n'+data.errors[index].msg;
+                }
+                alert('ERROR: ' + error);
+                throw new Error('ERROR: ' + error);
+            } 
+        }
+    })
 }
