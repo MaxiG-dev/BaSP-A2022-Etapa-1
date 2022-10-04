@@ -4,6 +4,10 @@ var alerts;
 var emailExpression;
 var formButton;
 var registerBtn;
+var validates = {
+    email: [false, 'ERROR Email cannot be empty'],
+    password: [false, 'ERROR Password cannot be empty'],
+}
 
 window.onload = function() {
     variables();
@@ -31,9 +35,13 @@ function eventsListeners() {
 function validateEmail(event) {
     if (emailExpression.test(event.target.value)) {
         inputStyle(event.target, 'success');
+        validates.email[0] = true;
+        validates.email[1] = event.target.value;
     } else {
         errorMessage(event.target, 'Email not valid');
         inputStyle(event.target, 'error');
+        validates.email[0] = false;
+        validates.email[1] = 'ERROR Email not valid';
     }
 }
 
@@ -42,11 +50,17 @@ function validatePassword(event) {
     if (validatePassword.length < 8 ) {
         errorMessage(event.target, 'Password need contains at least 8 characters');
         inputStyle(event.target, 'error');
+        validates.password[0] = false;
+        validates.password[1] = 'ERROR Password need contains at least 8 characters';
     } else if (isNumber(validatePassword) && isString(validatePassword)) {
         inputStyle(event.target, 'success');
+        validates.password[0] = true;
+        validates.password[1] = event.target.value;
     } else {
         errorMessage(event.target, 'Password need contains numbers and letters');
         inputStyle(event.target, 'error');
+        validates.password[0] = false;
+        validates.password[1] = 'ERROR Password need contains numbers and letters';
     }
 }
 
@@ -95,8 +109,8 @@ function inputStyle(input, type) {
 function login(event) {
     event.preventDefault();
     alert(
-        "Email: " + email.value +
-        "\nPassword: " + password.value
+        "Email: " + validates.email[1] +
+        "\nPassword: " + validates.password[1]
     );
 }
 
