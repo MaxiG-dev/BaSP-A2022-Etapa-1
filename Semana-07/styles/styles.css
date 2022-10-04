@@ -32,44 +32,17 @@ p {
 a {
   text-decoration: none;
 }
-.alerts {
-  position: fixed;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
-  top: 50px;
-  right: 50px;
-  z-index: 1;
-}
 .error-message {
-  height: 50px;
-  width: max-content;
-  margin-bottom: 10px;
-  padding: 0 20px;
-  background: var(--color-white);
+  width: 100%;
+  margin-top: 5px;
+  padding: 0 2px;
+  background: #ad2102;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
-  color: #D22904;
+  color: var(--color-white);
   font-weight: 500;
+  font-size: 14px;
   text-align: center;
-  line-height: 50px;
-  transition: all 0.5s;
-  transform: translateX(500px);
-  animation: message 4s ease-in-out;
-}
-@keyframes message {
-  0% {
-      transform: translateX(500px);
-  }
-  10% {
-      transform: translateX(0px);
-  }
-  90% {
-      transform: translateX(0px);
-  }
-  100% {
-      transform: translateX(500px);
-  }
+  line-height: 1.6;
 }
 @media screen and (min-width: 768px) {
   h1 {

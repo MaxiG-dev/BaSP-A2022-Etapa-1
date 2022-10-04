@@ -37,59 +37,37 @@ function variables() {
 
 function eventsListeners() {
     firstName.addEventListener('blur', validateFirstName);
-    firstName.addEventListener('focus', function () {
-        inputStyle(firstName, 'reset');
-    });
+    firstName.addEventListener('focus', reset);
     lastName.addEventListener('blur', validateLastName);
-    lastName.addEventListener('focus', function () {
-        inputStyle(lastName, 'reset');
-    });
+    lastName.addEventListener('focus', reset);
     dni.addEventListener('blur', validateDni);
-    dni.addEventListener('focus', function () {
-        inputStyle(dni, 'reset');
-    });
+    dni.addEventListener('focus', reset);
     birth.addEventListener('blur', validateBirth);
-    birth.addEventListener('focus', function () {
-        inputStyle(birth, 'reset');
-    });
+    birth.addEventListener('focus', reset);
     phone.addEventListener('blur', validatePhone);
-    phone.addEventListener('focus', function () {
-        inputStyle(phone, 'reset');
-    });
+    phone.addEventListener('focus', reset);
     locality.addEventListener('blur', validateLocality);
-    locality.addEventListener('focus', function () {
-        inputStyle(locality, 'reset');
-    });
+    locality.addEventListener('focus', reset);
     address.addEventListener('blur', validateAddress);
-    address.addEventListener('focus', function () {
-        inputStyle(address, 'reset');
-    });
+    address.addEventListener('focus', reset);
     postalCode.addEventListener('blur', validatePostal);
-    postalCode.addEventListener('focus', function () {
-        inputStyle(postalCode, 'reset');
-    });
+    postalCode.addEventListener('focus', reset);
     email.addEventListener('blur', validateEmail);
-    email.addEventListener('focus', function () {
-        inputStyle(email, 'reset');
-    });
+    email.addEventListener('focus', reset);
     password.addEventListener('blur', validatePassword);
-    password.addEventListener('focus', function () {
-        inputStyle(password, 'reset');
-    });
+    password.addEventListener('focus', reset);
     repeatPassword.addEventListener('blur', validateRepeatPassword);
-    repeatPassword.addEventListener('focus', function () {
-        inputStyle(repeatPassword, 'reset');
-    });
+    repeatPassword.addEventListener('focus', reset);
     formButton.addEventListener('click', register);
 }
 
 function validateFirstName(event) {
     var name = event.target.value;
     if (name.length < 4) {
-        errorMessage('Name need contains at least 4 characters');
+        errorMessage(event.target, 'Name need contains at least 4 characters');
         inputStyle(event.target, 'error');
     } else if (isNumber(name)) {
-        errorMessage('Name cannot contains numbers');
+        errorMessage(event.target, 'Name cannot contains numbers');
         inputStyle(event.target, 'error');
     } else {
         inputStyle(event.target, 'success');
@@ -99,10 +77,10 @@ function validateFirstName(event) {
 function validateLastName(event) {
     var name = event.target.value;
     if (name.length < 4) {
-        errorMessage('Name need contains at least 4 characters');
+        errorMessage(event.target, 'Name need contains at least 4 characters');
         inputStyle(event.target, 'error');
     } else if (isNumber(name)) {
-        errorMessage('Name cannot contains numbers');
+        errorMessage(event.target, 'Name cannot contains numbers');
         inputStyle(event.target, 'error');
     } else {
         inputStyle(event.target, 'success');
@@ -112,12 +90,12 @@ function validateLastName(event) {
 function validateDni(event) {
     var validateDni = event.target.value;
     if (isNaN(validateDni)) {
-        errorMessage('DNI only can contains numbers');
+        errorMessage(event.target, 'DNI only can contains numbers');
         inputStyle(event.target, 'error');
     } else if (validateDni.length === 8) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('DNI need contains 8 characters');
+        errorMessage(event.target, 'DNI need contains 8 characters');
         inputStyle(event.target, 'error');
     }
 }
@@ -125,7 +103,7 @@ function validateDni(event) {
 function validateBirth(event) {
     var validateBirth = event.target.value;
     if (validateBirth === '') {
-        errorMessage('Date of birth cannot be empty');
+        errorMessage(event.target, 'Date of birth cannot be empty');
         inputStyle(event.target, 'error');
     } else {
         inputStyle(event.target, 'success');
@@ -135,20 +113,20 @@ function validateBirth(event) {
 function validatePhone(event) {
     var validatePhone = event.target.value;
     if (isNaN(validatePhone)) {
-        errorMessage('Phone only can contains numbers');
+        errorMessage(event.target, 'Phone only can contains numbers');
         inputStyle(event.target, 'error');
     } else if (validatePhone.length === 10) {
-        errorMessage('Phone need contains 10 characters');
-        inputStyle(event.target, 'error');
-    } else {
         inputStyle(event.target, 'success');
+    } else {
+        errorMessage(event.target, 'Phone need contains 10 characters');
+        inputStyle(event.target, 'error');
     }
 }
 
 function validateLocality(event) {
     var validateLocality = event.target.value;
     if (validateLocality.length < 5) {
-        errorMessage('Locality need contains at least 5 characters');
+        errorMessage(event.target, 'Locality need contains at least 5 characters');
         inputStyle(event.target, 'error');
     } else {
         inputStyle(event.target, 'success');
@@ -158,17 +136,13 @@ function validateLocality(event) {
 function validateAddress(event) {
     var validateAddress = event.target.value;
     if (validateAddress.length < 5) {
-        errorMessage('Address need contains at least 5 characters');
+        errorMessage(event.target, 'Address need contains at least 5 characters');
         inputStyle(event.target, 'error');
     } else if (!(isNumber(validateAddress) && isString(validateAddress))) {
-        errorMessage('Address need contains numbers and letters');
+        errorMessage(event.target, 'Address need contains numbers and letters');
         inputStyle(event.target, 'error');
-    } else if (
-        validateAddress
-            .substring(3, validateAddress.length - 2)
-            .indexOf(' ') === -1
-    ) {
-        errorMessage('Address needs a space in between');
+    } else if (validateAddress.substring(1, validateAddress.length - 1).indexOf(' ') === -1) {
+        errorMessage(event.target, 'Address needs a space in between');
         inputStyle(event.target, 'error');
     } else {
         inputStyle(event.target, 'success');
@@ -178,12 +152,12 @@ function validateAddress(event) {
 function validatePostal(event) {
     var validatePostal = event.target.value;
     if (isNaN(validatePostal)) {
-        errorMessage('Postal code only can contains numbers');
+        errorMessage(event.target, 'Postal code only can contains numbers');
         inputStyle(event.target, 'error');
     } else if (validatePostal.length === 4 || validatePostal.length === 5) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('Postal code need contains 4-5 characters');
+        errorMessage(event.target, 'Postal code need contains 4-5 characters');
         inputStyle(event.target, 'error');
     }
 }
@@ -192,7 +166,7 @@ function validateEmail(event) {
     if (emailExpression.test(event.target.value)) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('Email not valid');
+        errorMessage(event.target, 'Email not valid');
         inputStyle(event.target, 'error');
     }
 }
@@ -200,12 +174,12 @@ function validateEmail(event) {
 function validatePassword(event) {
     var validatePassword = event.target.value;
     if (validatePassword.length < 8) {
-        errorMessage('Password need contains at least 8 characters');
+        errorMessage(event.target, 'Password need contains at least 8 characters');
         inputStyle(event.target, 'error');
     } else if (isNumber(validatePassword) && isString(validatePassword)) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('Password need contains numbers and letters');
+        errorMessage(event.target, 'Password need contains numbers and letters');
         inputStyle(event.target, 'error');
     }
 }
@@ -213,12 +187,12 @@ function validatePassword(event) {
 function validateRepeatPassword(event) {
     var validatePassword = event.target.value;
     if (validatePassword.length < 8) {
-        errorMessage('Repeat password need contains at least 8 characters');
+        errorMessage(event.target, 'Repeat password need contains at least 8 characters');
         inputStyle(event.target, 'error');
     } else if (event.target.value === password.value) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('Passwords not match');
+        errorMessage(event.target, 'Passwords not match');
         inputStyle(event.target, 'error');
     }
 }
@@ -239,14 +213,18 @@ function isNumber(validate) {
     }
 }
 
-function errorMessage(message = 'Error, please try again') {
+function reset(event) {
+    inputStyle(event.target, 'reset');
+    if(event.target.nextElementSibling !== null) {
+        event.target.nextElementSibling.remove();
+    }
+}
+
+function errorMessage(element, message = 'Error, please try again') {
     var errorMessage = document.createElement('div');
     errorMessage.textContent = message;
     errorMessage.classList.add('error-message');
-    alerts.appendChild(errorMessage);
-    setTimeout(function () {
-        errorMessage.remove();
-    }, 4000);
+    element.parentNode.appendChild(errorMessage);
 }
 
 function inputStyle(event, type) {
@@ -261,7 +239,8 @@ function inputStyle(event, type) {
     }
 }
 
-function register() {
+function register(event) {
+    event.preventDefault();
     alert(
         "First name: " + firstName.value +
         "\nLast name: " + lastName.value +

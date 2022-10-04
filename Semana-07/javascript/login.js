@@ -2,6 +2,7 @@ var email;
 var password;
 var alerts;
 var emailExpression;
+var formButton;
 var registerBtn;
 
 window.onload = function() {
@@ -13,27 +14,25 @@ function variables() {
     email = document.querySelector('.email');
     password = document.querySelector('.password');
     alerts = document.querySelector('.alerts');
+    formButton = document.querySelector('.form-button');
     registerBtn = document.querySelector('.form-button-secondary')
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 }
 
 function eventsListeners() {
-    email.addEventListener('blur', validateEmail)
-    email.addEventListener('focus', function() {
-        inputStyle(email, 'reset')
-    })
-    password.addEventListener('blur', validatePassword)
-    password.addEventListener('focus', function() {
-        inputStyle(password, 'reset')
-    })
-    registerBtn.addEventListener('click', signUpHref)
+    email.addEventListener('blur', validateEmail);
+    email.addEventListener('focus', reset);
+    password.addEventListener('blur', validatePassword);
+    password.addEventListener('focus', reset);
+    formButton.addEventListener('click', login);
+    registerBtn.addEventListener('click', signUpHref);
 }
 
 function validateEmail(event) {
     if (emailExpression.test(event.target.value)) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('Email not valid');
+        errorMessage(event.target, 'Email not valid');
         inputStyle(event.target, 'error');
     }
 }
@@ -41,12 +40,12 @@ function validateEmail(event) {
 function validatePassword(event) {
     var validatePassword = event.target.value;
     if (validatePassword.length < 8 ) {
-        errorMessage('Password need contains at least 8 characters');
+        errorMessage(event.target, 'Password need contains at least 8 characters');
         inputStyle(event.target, 'error');
     } else if (isNumber(validatePassword) && isString(validatePassword)) {
         inputStyle(event.target, 'success');
     } else {
-        errorMessage('Password need contains numbers and letters');
+        errorMessage(event.target, 'Password need contains numbers and letters');
         inputStyle(event.target, 'error');
     }
 }
@@ -67,14 +66,18 @@ function isNumber(validate) {
     }
 }
 
-function errorMessage(message='Error, please try again') {
+function reset(event) {
+    inputStyle(event.target, 'reset');
+    if(event.target.nextElementSibling !== null) {
+        event.target.nextElementSibling.remove();
+    }
+}
+
+function errorMessage(element, message = 'Error, please try again') {
     var errorMessage = document.createElement('div');
     errorMessage.textContent = message;
     errorMessage.classList.add('error-message');
-    alerts.appendChild(errorMessage);
-    setTimeout(function () {
-        errorMessage.remove();
-    }, 4000);
+    element.parentNode.appendChild(errorMessage);
 }
 
 function inputStyle(input, type) {
@@ -87,6 +90,14 @@ function inputStyle(input, type) {
     if (type === 'reset') {
         input.style.border = 'solid 1px #373867'
     }
+}
+
+function login(event) {
+    event.preventDefault();
+    alert(
+        "Email: " + email.value +
+        "\nPassword: " + password.value
+    );
 }
 
 function signUpHref(event) {
