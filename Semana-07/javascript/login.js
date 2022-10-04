@@ -2,6 +2,7 @@ var email;
 var password;
 var alerts;
 var emailExpression;
+var registerBtn;
 
 window.onload = function() {
     variables();
@@ -12,6 +13,7 @@ function variables() {
     email = document.querySelector('.email');
     password = document.querySelector('.password');
     alerts = document.querySelector('.alerts');
+    registerBtn = document.querySelector('.form-button-secondary')
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 }
 
@@ -24,27 +26,28 @@ function eventsListeners() {
     password.addEventListener('focus', function() {
         inputStyle(password, 'reset')
     })
+    registerBtn.addEventListener('click', signUpHref)
 }
 
-function validateEmail(input) {
-    if (emailExpression.test(input.target.value)) {
-        inputStyle(input.target, 'success');
+function validateEmail(event) {
+    if (emailExpression.test(event.target.value)) {
+        inputStyle(event.target, 'success');
     } else {
         errorMessage('Email not valid');
-        inputStyle(input.target, 'error');
+        inputStyle(event.target, 'error');
     }
 }
 
-function validatePassword(input) {
-    var validatePassword = input.target.value;
+function validatePassword(event) {
+    var validatePassword = event.target.value;
     if (validatePassword.length < 8 ) {
         errorMessage('Password need contains at least 8 characters');
-        inputStyle(input.target, 'error');
+        inputStyle(event.target, 'error');
     } else if (isNumber(validatePassword) && isString(validatePassword)) {
-        inputStyle(input.target, 'success');
+        inputStyle(event.target, 'success');
     } else {
         errorMessage('Password need contains numbers and letters');
-        inputStyle(input.target, 'error');
+        inputStyle(event.target, 'error');
     }
 }
 
@@ -69,7 +72,7 @@ function errorMessage(message='Error, please try again') {
     errorMessage.textContent = message;
     errorMessage.classList.add('error-message');
     alerts.appendChild(errorMessage);
-    setTimeout(() => {
+    setTimeout(function () {
         errorMessage.remove();
     }, 4000);
 }
@@ -85,3 +88,8 @@ function inputStyle(input, type) {
         input.style.border = 'solid 1px #373867'
     }
 }
+
+function signUpHref(event) {
+    event.preventDefault();
+    window.location.href = "../views/sign-up.html";
+};
