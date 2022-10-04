@@ -1,3 +1,4 @@
+var API_URL;
 var email;
 var password;
 var alerts;
@@ -21,6 +22,7 @@ function variables() {
     formButton = document.querySelector('.form-button');
     registerBtn = document.querySelector('.form-button-secondary')
     emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    API_URL = 'https://basp-m2022-api-rest-server.herokuapp.com/login'
 }
 
 function eventsListeners() {
@@ -28,7 +30,7 @@ function eventsListeners() {
     email.addEventListener('focus', reset);
     password.addEventListener('blur', validatePassword);
     password.addEventListener('focus', reset);
-    formButton.addEventListener('click', login);
+    formButton.addEventListener('click', requestLogin);
     registerBtn.addEventListener('click', signUpHref);
 }
 
@@ -106,8 +108,7 @@ function inputStyle(input, type) {
     }
 }
 
-function login(event) {
-    event.preventDefault();
+function invalidForm() {
     alert(
         "Email: " + validates.email[1] +
         "\nPassword: " + validates.password[1]
@@ -117,4 +118,49 @@ function login(event) {
 function signUpHref(event) {
     event.preventDefault();
     window.location.href = "../views/sign-up.html";
-};
+}
+
+function validateInputs() {
+    for (var element in validates) {
+        if (!validates[element][0]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function requestLogin(event) {
+    event.preventDefault();
+    if (validateInputs()) {
+        request(API_URL + '?email=' + validates.email[1] + '&password=' + validates.password[1]);
+    } else {
+        invalidForm();
+    }
+}
+
+function request(URL) {
+    var res;
+    fetch(URL)
+    .then(function(response) {
+        res = response
+        return res.json()   
+    })
+    .then(function(data) {
+        if(data.success) {
+            alert(
+                "Login success: " + data.msg +
+                "\nEmail: " + validates.email[1] +
+                "\nPassword: " + validates.password[1]
+            );
+        } else {
+            alert(
+                "ERROR: " + data.msg +
+                "\nEmail: " + validates.email[1] +
+                "\nPassword: " + validates.password[1]
+            );
+            if (res.status < 200 || res.status > 299) {
+                throw new Error('ERROR: ' + data.msg);
+            } 
+        }
+    })
+}
